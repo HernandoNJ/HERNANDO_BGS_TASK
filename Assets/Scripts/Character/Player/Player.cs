@@ -1,16 +1,18 @@
+using Assets.Scripts.Interfaces;
 using UnityEngine;
 
 namespace Assets.Scripts.Character.Player {
 	[RequireComponent(typeof(PlayerInputController))]
-	[RequireComponent(typeof(Rigidbody2D))]
-	public class Player : CharacterBase {
+	public class Player : CharacterBase, IInteractor {
 		[SerializeField] private Rigidbody2D rb;
+
+		[SerializeField] private string walkTriggerAnimText;
 		[SerializeField] private bool facingRight;
 
 		private void OnEnable()
 		{
-			rb = GetComponent<Rigidbody2D>();
 			animator = GetComponent<Animator>();
+			rb = GetComponent<Rigidbody2D>();
 		}
 
 		private void Start()

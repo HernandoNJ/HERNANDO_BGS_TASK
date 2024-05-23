@@ -1,3 +1,4 @@
+using Assets.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,8 +16,8 @@ namespace Assets.Scripts.Character.Player {
 
 		private void Start()
 		{
-			rb = GetComponent<Rigidbody2D>();
 			player = GetComponent<Player>();
+			rb = GetComponent<Rigidbody2D>();
 		}
 
 		private void FixedUpdate()
@@ -40,6 +41,14 @@ namespace Assets.Scripts.Character.Player {
 		private void OnMove(InputValue value)
 		{
 			moveInput = value.Get<Vector2>();
+		}
+
+		private void OnTriggerEnter(Collider other)
+		{
+			if (other.GetComponent<IInteractable>() != null)
+				Debug.Log("--- Interactable identified");
+			else
+				Debug.Log("--- Interactable missing");
 		}
 
 		private void Flip(){
