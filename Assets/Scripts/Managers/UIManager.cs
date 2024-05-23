@@ -1,8 +1,8 @@
+using Assets.Scripts.Managers;
 using UnityEngine;
 
-namespace Controllers
-{
-    public class UIController : MonoBehaviour
+namespace Managers {
+	public class UIManager : MonoBehaviour
     {
         
         public void OnPlayButtonPressed(int sceneIndex) 

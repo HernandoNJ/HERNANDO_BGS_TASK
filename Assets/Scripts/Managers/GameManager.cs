@@ -1,18 +1,23 @@
-using Assets.Scripts.Testing;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Controllers {
-
-	[RequireComponent(typeof(UIController))]
+namespace Assets.Scripts.Managers {
 	public class GameManager : MonoBehaviour {
 
-		private Testing testing;
+		public static GameManager Instance { get; private set; }
+
+		private void Awake()
+		{
+			if (Instance == null)
+				Instance = this;
+			else if (Instance != this)
+				Destroy(this);
+
+			DontDestroyOnLoad(this);
+		}
 
 		private void OnEnable()
 		{
-			testing = GetComponent<Testing>();
-
 			EventsManager.StartGameAction += StartNewGame;
 			EventsManager.QuitGameAction += QuitGame;
 		}
@@ -27,7 +32,7 @@ namespace Controllers {
 		private void StartNewGame(int sceneIndexArg) => SceneManager.LoadSceneAsync(sceneIndexArg);
 		private void QuitGame()
 		{
-			testing.TestFunctionCall("--- Quit Game function called");
+			Debug.Log("--- Quit Game function called");
 			Application.Quit();
 		}
 	}
