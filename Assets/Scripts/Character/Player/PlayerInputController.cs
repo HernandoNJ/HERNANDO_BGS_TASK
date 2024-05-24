@@ -12,13 +12,7 @@ namespace Assets.Scripts.Character.Player {
 		[SerializeField] private float lerpValue = 0.25f;
 		[SerializeField] private bool isFacingRight;
 
-		private Rigidbody2D rb;
-
-		private void Start()
-		{
-			player = GetComponent<Player>();
-			rb = GetComponent<Rigidbody2D>();
-		}
+		[SerializeField] private Rigidbody2D rb;
 
 		private void FixedUpdate()
 		{
