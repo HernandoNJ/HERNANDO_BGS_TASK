@@ -1353,6 +1353,7 @@ GameObject:
   - component: {fileID: 9120364946271423973}
   - component: {fileID: 8372602716290973700}
   - component: {fileID: 1431734461281959059}
+  - component: {fileID: 6945394119736471572}
   - component: {fileID: 1806924096868236475}
   - component: {fileID: 3824843827850756944}
   m_Layer: 0
@@ -1416,6 +1417,14 @@ MonoBehaviour:
   idleTriggerAnimText: idle
   walkTriggerAnimText: walk
   facingRight: 0
+  credits: {fileID: 0}
+  hoodSprite: {fileID: 5323640463347170894}
+  torsoSprite: {fileID: 3777418722068225985}
+  clothesSprites:
+  - {fileID: 21300000, guid: 468244f274f38f64b85773c7888444b6, type: 3}
+  - {fileID: 21300000, guid: f7e7bed775fff8347b9e53c67e20875f, type: 3}
+  - {fileID: 21300000, guid: 90458a12b047bb84ba77cb7ea81ba457, type: 3}
+  - {fileID: 21300000, guid: 124013dbba7f284489ac16156c930131, type: 3}
 --- !u!114 &8372602716290973700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1429,7 +1438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 9120364946271423973}
-  moveSpeed: 10
+  moveSpeed: 17
   inputThreshold: 0.2
   lerpValue: 0.25
   isFacingRight: 0
@@ -1464,6 +1473,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &6945394119736471572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5960524271802234708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d609e02a7f80c4e85079fde2e7d915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialCredits: 30
+  currentCredits: 0
 --- !u!50 &1806924096868236475
 Rigidbody2D:
   serializedVersion: 4
@@ -1472,14 +1495,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5960524271802234708}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1490,7 +1513,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &3824843827850756944
 BoxCollider2D:
   m_ObjectHideFlags: 0

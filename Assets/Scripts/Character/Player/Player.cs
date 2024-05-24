@@ -1,4 +1,6 @@
 using Assets.Scripts.Interfaces;
+using Assets.Scripts.Misc;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Character.Player {
@@ -6,6 +8,10 @@ namespace Assets.Scripts.Character.Player {
 
 		[SerializeField] private string walkTriggerAnimText;
 		[SerializeField] private bool facingRight;
+		[SerializeField] private Credits credits;
+		[SerializeField] private SpriteRenderer hoodSprite;
+		[SerializeField] private SpriteRenderer torsoSprite;
+		[SerializeField] private List<Sprite> clothesSprites;
 
 		private void Start()
 		{
@@ -25,6 +31,16 @@ namespace Assets.Scripts.Character.Player {
 		public void FlipPlayer()
 		{
 			transform.Rotate(0, 180, 0);
+		}
+
+		public void BuyItem(int itemCredits) => credits.ReduceCredit(itemCredits);
+		public void SellItem(int itemCredits) => credits.AddCredit(itemCredits);
+		public void UpdateClothes(string id)
+		{
+			if (id == "h01") hoodSprite.sprite = clothesSprites[0];
+			if (id == "h02") hoodSprite.sprite = clothesSprites[1];
+			if (id == "t02") torsoSprite.sprite = clothesSprites[0];
+			if (id == "h03") torsoSprite.sprite = clothesSprites[0];
 		}
 
 		// Testing
